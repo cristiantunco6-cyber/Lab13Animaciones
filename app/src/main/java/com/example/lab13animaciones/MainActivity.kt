@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             Lab13AnimacionesTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
-                        Ejercicio2()
+                        Ejercicio3()
                     }
                 }
             }
@@ -33,6 +33,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     Lab13AnimacionesTheme {
-        Ejercicio2()
+        Ejercicio3()
     }
 }
