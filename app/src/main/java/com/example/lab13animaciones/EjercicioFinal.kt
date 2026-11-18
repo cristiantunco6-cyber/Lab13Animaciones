@@ -99,7 +99,8 @@ fun EjercicioFinal() {
 
                 FaseJuego.Jugando -> PantallaJuego(
                     puntaje = puntaje,
-                    onPuntaje = { puntaje++ },
+                    // Solo suma puntos mientras la partida está activa
+                    onPuntaje = { if (fase == FaseJuego.Jugando) puntaje++ },
                     onFin = {
                         nuevoRecord = puntaje > record
                         if (nuevoRecord) record = puntaje
@@ -354,7 +355,8 @@ fun PantallaJuego(puntaje: Int, onPuntaje: () -> Unit, onFin: () -> Unit) {
                             listOf(Color(0xAAFFF59D), Color(0x00FFC857))
                         )
                     )
-                    .clickable {
+                    // La estrella deja de responder cuando se acaba el tiempo
+                    .clickable(enabled = tiempoRestante > 0) {
                         objetivoX = Random.nextFloat()
                         objetivoY = Random.nextFloat()
                         golpes++
